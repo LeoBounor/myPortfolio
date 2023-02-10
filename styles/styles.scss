@@ -57,31 +57,39 @@ section {
 .sec1 {
 	display: none;
 	transform: translateY(0) scale(1);
-	background-color: rgb(167, 205, 90);
 }
 
 .sec2 {
 	display: none;
 	transform: translateY(0) scale(1);
-	background-color: slateblue;
 }
 
 .sec3 {
 	display: none;
 	transform: translateY(0) scale(1);
-	background-color: rgb(178, 205, 90);
 }
 
 .sec4 {
 	display: none;
 	transform: translateY(0) scale(1);
-	background-color: rgb(194, 205, 90);
 }
 
 .sec5 {
 	display: none;
 	transform: translateY(0) scale(1);
-	background-color: rgb(172, 205, 90);
+}
+
+.active {
+	display: block;
+	animation: scaleAnim 1s ease-in-out;
+	@keyframes scaleAnim {
+		0%{
+			transform: translateY(-100%) scaleY(0);
+		}
+		100%{
+			transform: translateY(0) scaleY(1);
+		}
+	}
 }
 
 //Controls
@@ -120,4 +128,60 @@ section {
 			pointer-events: none;
 		}
 	}
+}
+
+/*Header-content*/
+.header-content {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	height: 100%;
+	.left-header{
+		display: flex;
+		align-items: center;
+		position: relative;
+		.h-shape{
+			transition: all .4s ease-in-out;
+			width: 65%;
+			height: 100%;
+			background-color: var(--color-secondary);
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: -1;
+			clip-path: polygon(0 0, 46% 0, 70% 100%, 0% 100%);
+		}
+		.image {
+			border-radius: var(--br-sm-2);
+			height: 90%;
+			width: 68%;
+			margin-left: 4rem;
+			background-color: var(--color-black);
+			transition: all .4s ease-in-out;
+			filter: grayscale(100%);
+			&:hover{
+				filter: grayscale(0);
+			}
+		}
+	}
+	.right-header {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding-right: 18rem;
+		.name{
+			font-size: 3rem;
+			span{
+				color: var(--color-secondary);
+			}
+		}
+		p{
+			margin: 1.5rem 0;
+			line-height: 2rem;
+		}
+	}
+}
+
+/*Independed components*/
+.main-btn {
+	
 }
